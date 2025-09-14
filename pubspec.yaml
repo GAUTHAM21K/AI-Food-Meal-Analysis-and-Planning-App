@@ -1,0 +1,35 @@
+name: meal_master
+description: "An AI-Powered Meal Analyzer & Planner"
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core Packages
+  flutter_riverpod: ^2.5.1      # State management
+  dio: ^5.4.3+1               # HTTP client
+  go_router: ^14.1.0            # Navigation
+  
+  # AI & Image Packages
+  image_picker: ^1.1.2          # For camera and gallery access
+  flutter_dotenv: ^5.1.0        # For managing API keys securely
+
+  # UI & UX Packages
+  fl_chart: ^0.68.0             # For charts and graphs
+  intl: ^0.19.0                 # For date/number formatting
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env # Register the .env file

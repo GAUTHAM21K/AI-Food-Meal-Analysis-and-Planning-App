@@ -2,6 +2,57 @@
 
 Gumm is a Flutter-based application designed to help users analyze meals and generate personalized meal plans. The app leverages AI-powered services to provide insights into meal composition, nutritional values, and tailored meal planning based on user preferences.
 
+## 🏗️ Architecture Overview
+
+The Gumm project is designed with modularity, scalability, and maintainability in mind. Below is a brief overview of the key architectural decisions:
+
+### 1. Modular Folder Structure
+The codebase is organized into clear, purpose-driven directories:
+- `common/`: Shared utilities and reusable widgets.
+- `config/`: App-wide configurations like routing and theming.
+- `data/`: Models, providers, repositories, and services.
+- `features/`: Feature-specific logic grouped by domain (e.g., meal analysis, planning, history).
+
+This structure follows the Separation of Concerns principle for better code clarity and maintainability.
+
+### 2. Feature-Based Architecture
+Each feature resides in its own folder under `features/`, containing:
+- `providers/`: Local state management.
+- `screens/`: UI views.
+- `widgets/`: Feature-specific reusable components.
+
+This encapsulation allows independent development and testing of features.
+
+### 3. Service-Oriented Design
+Services in `data/services/` (e.g., `GeminiService`, `CameraService`) abstract external dependencies and expose clean interfaces for:
+- API communication
+- Local storage
+- Device interaction
+
+This promotes reusability and simplifies testing.
+
+### 4. State Management with Provider
+The app uses the `Provider` package for localized state management within each feature. This keeps logic simple and avoids global complexity.
+
+### 5. Repository Pattern
+Repositories in `data/repositories/` (e.g., `MealRepository`) decouple business logic from data sources, providing a unified interface for accessing APIs or local storage.
+
+### 6. Environment Configuration
+Using `flutter_dotenv`, environment variables (like API keys) are securely managed, allowing easy switching between development and production setups.
+
+### 7. Robust Error Handling
+- Services validate inputs and handle failures gracefully.
+- UI components use reusable widgets like `ErrorDisplay` for consistent feedback.
+
+### 8. Scalability
+The architecture supports growth:
+- New features can be added under `features/`.
+- Services and repositories are easily extendable without breaking existing code.
+
+### 9. Cross-Platform Support
+Built with Flutter, the app runs on Android, iOS, and Web. Platform-agnostic packages like `dio` and `path_provider` ensure smooth cross-device compatibility.
+
+
 ---
 
 ## Features
